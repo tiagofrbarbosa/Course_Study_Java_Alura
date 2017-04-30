@@ -2,22 +2,72 @@ package Curso;
 
 public class Funcionario {
 	
-	String nome;
-	String departamento;
-	Double salario;
-	dataEntrada dataentrada;
-	String RG;
+	private String nome;
+	private String departamento;
+	private Double salario;
+	private dataEntrada dataentrada = new dataEntrada();
+	private String RG;
 	
-	void recebeAumento(Double aumento){
+	public Funcionario(String nome){
+		this.nome = nome;
+	}
+	
+	public Funcionario(){
+		
+	}
+	
+	public void setNome(String nome){
+		this.nome = nome;
+	}
+	
+	public String getNome(){
+		return this.nome;
+	}
+	
+	public void setDepartamento(String departamento){
+		this.departamento = departamento;
+	}
+	
+	public String getDepartamento(){
+		return this.departamento;
+	}
+	
+	public void setSalario(Double salario){
+		this.salario  = salario;
+	}
+	
+	public Double getSalario(){
+		return this.salario;
+	}
+	
+	public void setDataentrada(int dia, int mes, int ano){
+		this.dataentrada.preencheData(dia, mes, ano);
+	}
+	
+	public void getDataEntrada(){
+		this.dataentrada.getDataFormatada();
+	}
+	
+	
+	public void setRG(String RG){
+		this.RG = RG;
+	}
+	
+	public String getRG(){
+		return this.RG;
+	}
+	
+	
+	public void recebeAumento(Double aumento){
 		this.salario += aumento;
 	}
 	
-	Double calculaGanhoAtual(){
+	public Double calculaGanhoAtual(){
 		return this.salario * 12;
 	}
 	
 	
-	void mostra(){
+	public void mostra(){
 		System.out.println(this.nome);
 		System.out.println(this.departamento);
 		System.out.println(this.salario);
